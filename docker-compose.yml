@@ -6,22 +6,20 @@ services:
     build: ./gateway
     ports:
       - 8000:8000
-    command: npm run start
     env_file:
       - ./gateway/.env
     network_mode: host
     depends_on:
       - redis
-      - user
-  user:
+      - user_microservice
+  user_microservice:
     container_name: user_microservice
     build: ./user
-    command: npm run start
-    env_file: 
-        - ./user/.env
+    env_file:
+      - ./user/.env
     network_mode: host
-    depends_on: 
-        - redis
+    depends_on:
+      - redis
   redis:
     container_name: redis
     image: redis:6
