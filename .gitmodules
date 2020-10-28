@@ -1,6 +1,6 @@
 [submodule "user"]
 	path = user
-	url = https://github.com/luster02/auth-gateway
+	url = https://github.com/luster02/auth-user
 [submodule "gateway"]
 	path = gateway
-	url = https://github.com/luster02/auth-user.git
+	url = https://github.com/luster02/auth-gateway
