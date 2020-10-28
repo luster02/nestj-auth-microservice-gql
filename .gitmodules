@@ -1,0 +1,6 @@
+[submodule "user"]
+	path = user
+	url = ./user/.git
+[submodule "gateway"]
+	path = gateway
+	url = ./gateway/.git
