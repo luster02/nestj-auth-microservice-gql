@@ -1,0 +1,33 @@
+version: "3.3"
+
+services:
+  gateway:
+    container_name: gateway
+    build: ./gateway
+    ports:
+      - 8000:8000
+    command: npm run start
+    env_file:
+      - ./gateway/.env
+    network_mode: host
+    depends_on:
+      - redis
+      - user
+  user:
+    container_name: user_microservice
+    build: ./user
+    command: npm run start
+    env_file: 
+        - ./user/.env
+    network_mode: host
+    depends_on: 
+        - redis
+  redis:
+    container_name: redis
+    image: redis:6
+    restart: always
+    ports:
+      - "6379"
+    volumes:
+      - /private/var/www/redis:/var/www/redis
+    network_mode: host
